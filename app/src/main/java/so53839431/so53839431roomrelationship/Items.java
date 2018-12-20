@@ -1,18 +1,19 @@
 package so53839431.so53839431roomrelationship;
 
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
-@Entity(foreignKeys = @ForeignKey(entity = Category.class,parentColumns = "id", childColumns = "category", onDelete =  CASCADE))
+@Entity(foreignKeys = @ForeignKey(entity = Category.class,parentColumns = "categoryid", childColumns = "category", onDelete =  CASCADE))
 public class Items {
+    @Embedded Category referencedCategory; //<<<<<<<<<< embeds the linked reference Category
     @PrimaryKey(autoGenerate = true)
     private long id;
     private String category;
     private boolean isexcluded;
-
 
     public void setCategory(String category) {
         this.category = category;
@@ -37,4 +38,5 @@ public class Items {
     public boolean isIsexcluded() {
         return this.isexcluded;
     }
+
 }

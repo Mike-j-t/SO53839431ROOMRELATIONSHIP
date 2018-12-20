@@ -7,5 +7,4 @@ abstract class Database extends RoomDatabase {
 
     abstract public ItemsDAO itemsDAO();
     abstract public CategoryDAO categoryDao();
-
 }

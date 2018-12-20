@@ -14,4 +14,6 @@ interface ItemsDAO {
     @Query("SELECT * FROM Items")
     public List<Items> getAllItems();
 
+    @Query("SELECT * FROM Items JOIN Category ON Items.category = Category.categoryid WHERE isexcluded = 0")
+    List<Items> getItemsWithCategory();
 }
